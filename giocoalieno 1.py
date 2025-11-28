@@ -41,7 +41,7 @@ def on_mouse_down(pos):
 
     if alieno.collidepoint(pos):
 
-        messaggio = "bel colpo"
+        messaggio = "BEL COLPO!"
 
         alieno.image = "esplosione"
 
@@ -51,10 +51,17 @@ def on_mouse_down(pos):
 
 piazza_alieno()
 
-clock.schedule_interval(piazza_alieno, 1.0)
+clock.schedule_interval(piazza_alieno, 0.7)
 
 pgzrun.go()
  
+
+
+
+
+
+ 
+
 
 
 
