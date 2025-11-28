@@ -1,37 +1,60 @@
 from pgzero.actor import Actor
+
 from pgzero.clock import clock
+
 from random import randint
+
 import pgzrun
+ 
+TITLE = "Il mio primo gioco"
 
-TITLE="COLPISCI L'ALIENO"
-WIDTH=1000
-HEIGHT=800
+WIDTH = 800
 
-messaggio= ""
-alieno=Actor("alieno")
+HEIGHT = 600
+ 
+messaggio = ""
 
+alieno = Actor("alieno")
+ 
 def draw():
+
     screen.clear()
+
     screen.fill(color=(0,0,0))
+
     alieno.draw()
-    screen.draw.text(messagio, center=(500,50),frontsize=60)
-    
+
+    screen.draw.text(messaggio, center=(400,40), fontsize=60)
+ 
 def piazza_alieno():
-    alieno.x = randint(70, WIDTH-70)
-    alieno.y = randint(70, HEIGHT-70)
+
+    alieno.x = randint(0,WIDTH-50)
+
+    alieno.y = randint(0, HEIGHT-50)
+
     alieno.image = "alieno"
-    
+
+
 def on_mouse_down(pos):
+
     global messaggio
+
     if alieno.collidepoint(pos):
-        messaggio="Bel colpo!!"
-        alieno.image="esplosione"
+
+        messaggio = "bel colpo"
+
+        alieno.image = "esplosione"
+
     else:
-        messaggio="mancato..."
-        
+
+        messaggio = "Mancato..."
+
 piazza_alieno()
+
 clock.schedule_interval(piazza_alieno, 1.0)
+
 pgzrun.go()
+ 
 
 
 
